@@ -1,0 +1,33 @@
+@model Produto
+@{
+    ViewData["Title"] = "Excluir produto";
+}
+
+<h1 class="h3 mb-3">Excluir produto</h1>
+
+<div class="alert alert-warning">Tem certeza de que deseja excluir este produto? Esta ação não pode ser desfeita.</div>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <dl class="row mb-0">
+            <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Nome)</dt>
+            <dd class="col-sm-9">@Model.Nome</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Descricao)</dt>
+            <dd class="col-sm-9">@Model.Descricao</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Preco)</dt>
+            <dd class="col-sm-9">@Model.Preco.ToString("C2")</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(m => m.QuantidadeEstoque)</dt>
+            <dd class="col-sm-9">@Model.QuantidadeEstoque</dd>
+        </dl>
+    </div>
+    <div class="card-footer">
+        <form asp-action="Delete" class="d-flex gap-2">
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="btn btn-danger"><i class="bi bi-trash me-1"></i>Excluir</button>
+            <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
+        </form>
+    </div>
+</div>

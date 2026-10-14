@@ -1,0 +1,34 @@
+@model Produto
+@{
+    ViewData["Title"] = "Detalhes do produto";
+}
+
+<h1 class="h3 mb-3">Detalhes do produto</h1>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <dl class="row mb-0">
+            <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Id)</dt>
+            <dd class="col-sm-9">@Model.Id</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Nome)</dt>
+            <dd class="col-sm-9">@Model.Nome</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Descricao)</dt>
+            <dd class="col-sm-9">@Model.Descricao</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Preco)</dt>
+            <dd class="col-sm-9">@Model.Preco.ToString("C2")</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(m => m.QuantidadeEstoque)</dt>
+            <dd class="col-sm-9">@Model.QuantidadeEstoque</dd>
+
+            <dt class="col-sm-3">Valor total em estoque</dt>
+            <dd class="col-sm-9">@((Model.Preco * Model.QuantidadeEstoque).ToString("C2"))</dd>
+        </dl>
+    </div>
+    <div class="card-footer d-flex gap-2">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary"><i class="bi bi-pencil me-1"></i>Editar</a>
+        <a asp-action="Index" class="btn btn-outline-secondary">Voltar</a>
+    </div>
+</div>
